@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+</head>
+<body>
+  <header>
+    <h1>Blackjack Club</h1>
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="registration.html">Registration</a>
+        </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Register for the Blackjack Club</h2>
+      <form method="post" action="#">
+        <fieldset>
+          <legend>Registration Form</legend>
+          <label for="first-name">First name</label>
+          <input type="text" id="first-name" name="first-name" required minlength="2">
+          <br><br>
+          <label for="last-name">Last name</label>
+          <input type="text" id="last-name" name="last-name" required minlength="2">
+          <br><br>
+          <label for="email">Uottawa email</label>
+          <input type="email" id="email" name="email" required>
+          <br><br>
+          <label for="year">Academic Year:</label>
+          <select id="year" name="year" required>
+            <option value="">Select a year</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="N/A">N/A</option>
+          </select>
+          <br><br>
+          <input type="checkbox" id="cards" name="cards" value="none">
+          <label for="cards">Can Supply Cards and Chips</label>
+          <br><br>
+          <label for="comments">Special Accommodations or Questions:</label><br>
+          <textarea id="comments" name="userComments" rows="5" cols="40" placeholder="Additional info"></textarea>
+        </fieldset>
+        <br>
+        <button type="submit">Register</button>
+      </form>
+      <p>Having trouble or have any questions? <a href="mailto:akuna105@uottawa.ca">Email our executive team</a>.</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 CSI 3140 Lab 1</p>
+  </footer>
+</body>
+</html>
