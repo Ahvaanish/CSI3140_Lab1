@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    background-color: black;
+    color: rgb(172, 7, 7);
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navigation on left side */
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 150px;
+    height: 100%;
+
+    background-color: #111;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 20px;
+}
+
+/* Navigation links */
+nav a {
+    color: rgb(172, 7, 7);
+    text-decoration: none;
+    padding: 15px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    background-color: rgb(172, 7, 7);
+    color: black;
+}
+
+/* Main content layout */
+main {
+    margin-left: 180px; /* move content to the right */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+    padding: 50px;
+    flex-wrap: wrap;
+}
+
+/* Image styling */
+main img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* About text section */
+main section:last-child {
+    max-width: 600px;
+}
+
+/* Heading */
+h1 {
+    color: rgb(172, 7, 7);
+    font-size: 40px;
+}
+
+/* Paragraph */
+p {
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+/* Link styling */
+a {
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
