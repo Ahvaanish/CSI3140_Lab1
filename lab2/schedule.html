@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Blackjack Club</h1>
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="registration.html">Registration</a>
+        </nav>
+  </header>
+  <main>
+   <section class="schedule-section">
+    <h2>Weekly Schedule</h2>
+    <div class="schedule-grid">
+        <div class="grid-header">Day</div>
+        <div class="grid-header">Time</div>
+        <div class="grid-header">Location</div>
+
+        <div id="dynamic-schedule-data" style="display: contents;">
+             <div class="grid-item">Loading schedule...</div>
+        </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 CSI 3140 Lab 3</p>
+  </footer>
+</body>
+</html>

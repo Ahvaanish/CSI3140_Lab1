@@ -1,0 +1,445 @@
+/* ==========================================================================
+   GLOBAL STYLES & RESET
+   ========================================================================== */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+    background-color: white;
+    color: #333; 
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+h1 {
+    color: #111; 
+    font-size: 40px;
+}
+
+h2, h3 {
+    color: #111; 
+}
+
+p {
+    line-height: 1.6;
+    font-size: 18px;
+    color: #555; 
+}
+
+a {
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 1px solid #111; 
+}
+
+a:hover {
+    color: #777; 
+    border-bottom-color: #777;
+}
+
+/* ==========================================================================
+   NAVIGATION (Flexbox)
+   ========================================================================== */
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    background-color: #f4f4f4; 
+    border-right: 1px solid #ddd; 
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+nav a {
+    color: #333;
+    padding: 15px;
+    font-size: 18px;
+    border: none; /* Overrides the global bottom border */
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+nav a:hover {
+    background-color: #333; 
+    color: white; 
+}
+
+/* ==========================================================================
+   LAYOUT (Header, Main, Footer)
+   ========================================================================== */
+/* Default inner-page header spacing */
+header h1 {
+    margin-left: 200px;
+    padding-top: 20px;
+    margin-bottom: 0;
+}
+
+main {
+    margin-left: 180px; /* Offsets the fixed nav bar */
+    display: flex;
+    align-items: flex-start; /* Unified alignment */
+    justify-content: center;
+    gap: 40px;
+    padding: 50px;
+    flex-wrap: wrap;
+    flex: 1; /* Pushes the footer to the bottom */
+}
+
+footer {
+    margin-left: 150px; 
+    margin-top: auto; 
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    background-color: #f4f4f4; 
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   PAGE SPECIFIC: HOME
+   ========================================================================== */
+body.home-page header h1 {
+    margin-left: 150px;
+    text-align: center;
+    padding-top: 35vh; 
+    margin-bottom: 10px; 
+}
+
+body.home-page main {
+    margin-left: 150px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+body.home-page h2, 
+body.home-page h3 {
+    margin-top: 0; 
+    text-align: center;
+}
+
+body.home-page h2 {
+    margin-bottom: 5px; 
+}
+
+/* ==========================================================================
+   PAGE SPECIFIC: ABOUT
+   ========================================================================== */
+main img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about-content {
+    max-width: 600px;
+}
+
+/* ==========================================================================
+   COMPONENTS: FORMS (Registration)
+   ========================================================================== */
+form {
+    background-color: #f9f9f9; 
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #ddd; 
+    width: 100%;
+    max-width: 500px;
+}
+
+fieldset {
+    border: none;
+}
+
+legend {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #111;
+    border-bottom: 2px solid #ddd; 
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    font-family: Arial, sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+button[type="submit"] {
+    background-color: #333; 
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #111; 
+}
+
+/* ==========================================================================
+   COMPONENTS: TABLES (Schedule)
+   ========================================================================== */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 20px;
+    border: 1px solid #ddd; 
+    background-color: white;
+}
+
+caption {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #111;
+    text-align: left;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; 
+}
+
+th {
+    background-color: #333; 
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9; 
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: FOCUS STATES
+   ========================================================================== */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid #8f001a; /* uOttawa Garnet! */
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Media Queries)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* 2. Push the nav to the very top and make it horizontal */
+    nav {
+        order: -1; /* Forces the nav to jump above the H1 */
+        position: static;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 0;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    header h1,
+    body.home-page header h1 {
+        order: 2; /* Forces H1 below the nav */
+        margin-left: 0;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    main, footer {
+        margin-left: 0;
+    }
+
+    body.home-page main,
+    #home-content {
+        margin-left: 0;
+        text-align: center;
+        align-items: center; 
+        justify-content: center;
+    }
+
+    main {
+        padding: 20px;
+    }
+}
+/* ==========================================================================
+   COMPONENTS: CSS GRID (Schedule)
+   ========================================================================== */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 2px;
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 20px;
+}
+
+.grid-header, .grid-item {
+    background-color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.grid-header {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Make it responsive on mobile */
+@media (max-width: 600px) {
+    .schedule-grid {
+        grid-template-columns: 1fr; /* Stacks to 1 column on small screens */
+    }
+}
+
+/* ==========================================================================
+   LAB 3: JAVASCRIPT UTILITY CLASSES & STATES
+   ========================================================================== */
+
+/* Hidden class for dynamic show/hide features */
+.hidden {
+    display: none !important;
+}
+
+/* Dark Mode Theme toggle */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode p, 
+body.dark-mode a, 
+body.dark-mode legend {
+    color: #e0e0e0;
+}
+
+body.dark-mode nav,
+body.dark-mode footer {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+body.dark-mode nav a {
+    color: #e0e0e0;
+}
+
+body.dark-mode form,
+body.dark-mode table,
+body.dark-mode .grid-header,
+body.dark-mode .grid-item {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+body.dark-mode .schedule-grid {
+    background-color: #444;
+    border-color: #444;
+}
+
+/* Interactive Button Styling */
+.interactive-btn {
+    background-color: #8f001a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+.interactive-btn:hover {
+    background-color: #600010;
+}
+
+/* Form Validation Styles */
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.input-error {
+    border: 2px solid #d9534f !important;
+    background-color: #fdf2f2 !important;
+}
+
+.success-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #d6e9c6;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
