@@ -75,10 +75,13 @@ function initAboutAccordion() {
 // --------------------------------------------------------------------------
 // Feature 3: Dynamic Data Rendering (JavaScript Data Structures)
 // --------------------------------------------------------------------------
+
 function initDynamicSchedule() {
     const scheduleContainer = document.getElementById('dynamic-schedule-data');
-    if (!scheduleContainer) return;
+    const dayFilter = document.getElementById('day-filter');
 
+    if (!scheduleContainer) return;
+    
     // Array of Objects storing schedule data
     const sessions = [
         { day: "Monday", time: "09:00 AM", loc: "MRT Room 401" },
@@ -87,28 +90,39 @@ function initDynamicSchedule() {
         { day: "Saturday", time: "08:00 PM", loc: "Casino Trip (Monthly)" }
     ];
 
-    // Clear loading text
-    scheduleContainer.innerHTML = "";
+    function renderSchedule(filterDay) {
+        scheduleContainer.innerHTML = "";
 
-    // Loop through the array and dynamically create DOM elements
-    sessions.forEach(session => {
-        const dayDiv = document.createElement('div');
-        dayDiv.className = 'grid-item';
-        dayDiv.textContent = session.day;
+        const filteredSessions = filterDay === "all"
+            ? sessions
+            : sessions.filter(session => session.day === filterDay);
 
-        const timeDiv = document.createElement('div');
-        timeDiv.className = 'grid-item';
-        timeDiv.textContent = session.time;
+        filteredSessions.forEach(session => {
+            const dayDiv = document.createElement('div');
+            dayDiv.className = 'grid-item';
+            dayDiv.textContent = session.day;
 
-        const locDiv = document.createElement('div');
-        locDiv.className = 'grid-item';
-        locDiv.textContent = session.loc;
+            const timeDiv = document.createElement('div');
+            timeDiv.className = 'grid-item';
+            timeDiv.textContent = session.time;
 
-        // Append to the grid
-        scheduleContainer.appendChild(dayDiv);
-        scheduleContainer.appendChild(timeDiv);
-        scheduleContainer.appendChild(locDiv);
-    });
+            const locDiv = document.createElement('div');
+            locDiv.className = 'grid-item';
+            locDiv.textContent = session.loc;
+
+            scheduleContainer.appendChild(dayDiv);
+            scheduleContainer.appendChild(timeDiv);
+            scheduleContainer.appendChild(locDiv);
+        });
+    }
+
+    renderSchedule("all");
+
+    if (dayFilter) {
+        dayFilter.addEventListener("change", () => {
+            renderSchedule(dayFilter.value);
+        });
+    }
 }
 
 function initFormValidation() {
