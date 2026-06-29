@@ -75,14 +75,17 @@ function initAboutAccordion() {
 // --------------------------------------------------------------------------
 // Feature 3: Dynamic Data Rendering (JavaScript Data Structures)
 // --------------------------------------------------------------------------
-
+// Initializes the dynamic schedule rendering and filtering logic
 function initDynamicSchedule() {
+    // Grab the main container where the grid layout items will be injected
     const scheduleContainer = document.getElementById('dynamic-schedule-data');
+    // Grab the dropdown menu used for filtering the days
     const dayFilter = document.getElementById('day-filter');
 
+    // Safety guard: If the container isn't on this specific webpage, exit the function early
     if (!scheduleContainer) return;
     
-    // Array of Objects storing schedule data
+    // Centralized array of objects holding the raw schedule data for easy maintenance
     const sessions = [
         { day: "Monday", time: "09:00 AM", loc: "MRT Room 401" },
         { day: "Wednesday", time: "11:00 AM", loc: "Colonel By 2060" },
@@ -90,40 +93,52 @@ function initDynamicSchedule() {
         { day: "Saturday", time: "08:00 PM", loc: "Casino Trip (Monthly)" }
     ];
 
+    // Core function handles filtering the array and rendering elements to the DOM
     function renderSchedule(filterDay) {
+        // Clear out any existing schedule items to prevent duplication on re-renders
         scheduleContainer.innerHTML = "";
 
+        // Use a ternary operator to decide whether to show everything or pull a specific day
         const filteredSessions = filterDay === "all"
             ? sessions
             : sessions.filter(session => session.day === filterDay);
 
+        // Loop through each filtered session object to generate the UI elements
         filteredSessions.forEach(session => {
+            // Create, style, and populate the text node for the Day column
             const dayDiv = document.createElement('div');
             dayDiv.className = 'grid-item';
             dayDiv.textContent = session.day;
 
+            // Create, style, and populate the text node for the Time column
             const timeDiv = document.createElement('div');
             timeDiv.className = 'grid-item';
             timeDiv.textContent = session.time;
 
+            // Create, style, and populate the text node for the Location column
             const locDiv = document.createElement('div');
             locDiv.className = 'grid-item';
             locDiv.textContent = session.loc;
 
+            // Append all three columns sequentially into the grid container
             scheduleContainer.appendChild(dayDiv);
             scheduleContainer.appendChild(timeDiv);
             scheduleContainer.appendChild(locDiv);
         });
     }
 
+    // Run an initial render on page load to display all upcoming sessions by default
     renderSchedule("all");
 
+    // If the dropdown filter exists on the page, set up its change listener
     if (dayFilter) {
         dayFilter.addEventListener("change", () => {
+            // Re-render the schedule dynamically based on the newly selected dropdown value
             renderSchedule(dayFilter.value);
         });
     }
 }
+
 
 function initFormValidation() {
     const form = document.getElementById('reg-form');
